@@ -5,6 +5,8 @@ Naive Bayes - Which Naive Bayes?"](https://nes.aueb.gr/ipl/nlp/pubs/ceas2006_pap
 However, the original datasets is recorded in such a way, that every single mail is in a seperate txt-file, distributed over several directories. This can make reading in the
 data a bit cumbersome, especially for beginners. Since the data set is such a fantastic ressource, I wanted to create a offer a single download of the data through a simple csv-file.
 
+You probably only need the data file ("enron_spam_data.csv"). The python file ("build_data_file.py") contains the script used to construct the csv file (downloading the original raw data from the website, unpacking it, processing it and saving it into the csv file).
+
 Processing of the data is minimal: The dataset contains the following columns:
 Column | Explanation
 ---|---

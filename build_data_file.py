@@ -5,6 +5,7 @@ import re
 import datetime as dt
 import sys
 import pandas as pd
+import zipfile as zf
 
 # Downloading and Unpacking data
 # Download original email dataset from Athens University of Economics and Business website
@@ -13,7 +14,8 @@ print('Beginning download of email data set from http://www.aueb.gr/users/ion/da
 url_base = 'http://www.aueb.gr/users/ion/data/enron-spam/preprocessed/'
 enron_list = ["enron1", "enron2", "enron3", "enron4", "enron5", "enron6"]
 
-os.mkdir("raw data")
+if not os.path.exists("raw data"):
+    os.mkdir("raw data")
 
 for entry in enron_list:
     print("Downloading archive: " + entry + "...")
@@ -95,8 +97,9 @@ print("...done!")
 
 # Save to file
 print("Saving data to file...")
-mails.to_csv("enron_spam_data.csv", index_label = "Message ID")
-print("...done! Data saved to 'enron_spam_data.csv'")
+with zf.ZipFile('enron_spam_data.zip', 'w') as enron_zip:
+    enron_zip.writestr('enron_spam_data.csv', mails.to_csv(index_label = "Message ID"))
+print("...done! Compressed data saved to 'enron_spam_data.zip'")
 
 # Confirmation message and data count
 print("\nData processed and saved to file.\nMails contained in data:")

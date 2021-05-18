@@ -95,7 +95,7 @@ print("...done!")
 
 # Save to file
 print("Saving data to file...")
-mails.to_csv("enron_spam_data.csv")
+mails.to_csv("enron_spam_data.csv", index_label = "Message ID")
 print("...done! Data saved to 'enron_spam_data.csv'")
 
 # Confirmation message and data count

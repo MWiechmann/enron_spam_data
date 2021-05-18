@@ -98,7 +98,7 @@ print("...done!")
 # Save to file
 print("Saving data to file...")
 with zf.ZipFile('enron_spam_data.zip', 'w') as enron_zip:
-    enron_zip.writestr('enron_spam_data.csv', mails.to_csv(index_label = "Message ID"))
+    enron_zip.writestr('enron_spam_data.csv', mails.to_csv(index_label = "Message ID"), compress_type=zf.ZIP_DEFLATED)
 print("...done! Compressed data saved to 'enron_spam_data.zip'")
 
 # Confirmation message and data count

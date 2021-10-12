@@ -73,8 +73,8 @@ for directory in enron_list:
     # Process spam messages in directory
     for entry in os.scandir(spam_folder):
         try:
-            file = open(entry)
             file = open(entry, encoding="latin_1")
+            content = file.read().split("\n", 1)
         except (UnicodeDecodeError):
             print("COULD NOT DECODE")
             print("Problem with file:" + str(entry))

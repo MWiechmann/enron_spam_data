@@ -22,7 +22,7 @@ for entry in enron_list:
 
     # Download current enron archive
     url = url_base + entry + ".tar.gz"
-    r = requests.get(url)
+    r = requests.get(url, verify=False)
     path = "raw data/" + entry + ".tar.gz"
 
     with open(path, 'wb') as f:
